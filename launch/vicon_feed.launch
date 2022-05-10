@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find vicon_bridge)/launch/vicon.launch"/>
+  
+  <!-- use vicon for state estimator   -->
+  <node name="vicon_feeder" pkg="vicon_feeder" type="vicon_feed" output="screen">
+
+    <remap from="/drone_vicon_pose" to="/vicon/kakao/kakao"/>
+    <param name="publish_groundtruth_pose_to_drone" value="true" />
+
+  </node>
+
+</launch>
